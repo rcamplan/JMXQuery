@@ -18,7 +18,17 @@ import javax.management.openmbean.TabularDataSupport;
  */
 public class JMXMetric {
     
-    private String metricName = null;
+    public static final String BOOLEAN_TYPE = "Boolean";
+    public static final String DOUBLE_TYPE = "Double";
+    public static final String LONG_TYPE = "Long";
+    public static final String INTEGER_TYPE = "Integer";
+    public static final String OBJECT_NAME_TYPE = "ObjectName";
+    public static final String TABULAR_DATA_SUPPORT_TYPE = "TabularDataSupport";
+    public static final String COMPOSITE_DATA_TYPE = "CompositeData";
+    public static final String NULL_TYPE = "Null";
+    public static final String STRING_TYPE = "String";
+    
+	private String metricName = null;
     private HashMap<String, String> metricLabels = new HashMap<String, String>();
     private String mBeanName;
     private String attribute;
@@ -97,23 +107,23 @@ public class JMXMetric {
     public void setAttributeType(Object value) {
         
         if (value instanceof String) {
-            this.attributeType = "String";
+            this.attributeType = STRING_TYPE;
         } else if (value == null) {
-            this.attributeType = "Null";
+            this.attributeType = NULL_TYPE;
         } else if (value instanceof CompositeData) {
-            this.attributeType = "CompositeData";
+            this.attributeType = COMPOSITE_DATA_TYPE;
         } else if (value instanceof TabularDataSupport) {
-            this.attributeType = "TabularDataSupport";
+            this.attributeType = TABULAR_DATA_SUPPORT_TYPE;
         } else if (value instanceof ObjectName) {
-            this.attributeType = "ObjectName";
+            this.attributeType = OBJECT_NAME_TYPE;
         } else if (value instanceof Integer) {
-            this.attributeType = "Integer";
+            this.attributeType = INTEGER_TYPE;
         } else if (value instanceof Long) {
-            this.attributeType = "Long";
+            this.attributeType = LONG_TYPE;
         } else if (value instanceof Double) {
-            this.attributeType = "Double";
+            this.attributeType = DOUBLE_TYPE;
         } else if (value instanceof Boolean) {
-            this.attributeType = "Boolean";
+            this.attributeType = BOOLEAN_TYPE;
         } else {
             this.attributeType = value.getClass().getSimpleName();
         }

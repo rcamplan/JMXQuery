@@ -19,8 +19,8 @@ import javax.management.MalformedObjectNameException;
  */
 public class JMXQuery {
 
-    private JMXConnector connector;
-    private final ArrayList<JMXMetric> metrics = new ArrayList<JMXMetric>();
+    protected JMXConnector connector;
+    protected final ArrayList<JMXMetric> metrics = new ArrayList<JMXMetric>();
     
     // Command Line Parameters
     String url = null;
@@ -165,7 +165,7 @@ public class JMXQuery {
      * @param args Command line arguments
      * @throws ParseError
      */
-    private void parse(String[] args) throws ParseError {
+    protected void parse(String[] args) throws ParseError {
 
         try {
             for (int i = 0; i < args.length; i++) {
